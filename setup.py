@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="schelp",
-    description="Source separation for multiplexed modulator imaging",
+    description="notebooks and helper functions for tests with transformer models",
     packages=["schelp"],
     python_requires='>=3.7',
 )
