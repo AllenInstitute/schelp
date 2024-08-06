@@ -7,12 +7,13 @@ def load_config(dataset_key="test", verbose=False):
     Returns:
         config: dict
     """
-    import toml
     from pathlib import Path
+
+    import toml
 
     package_dir = Path(__file__).parent.parent.parent.absolute()
     config_file = package_dir / "config.toml"
-    
+
     if verbose:
         print(f"package dir: {package_dir}")
         print(f"config file: {config_file}")
