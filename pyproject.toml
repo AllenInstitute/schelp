@@ -1,0 +1,88 @@
+
+[project]
+name = "schelp"
+version = "0.0.1"
+description = "Helper functions and notebooks to evaluate transformer models."
+readme = "README.md"
+license = {text = "MIT License"}
+authors = [
+    {name = "Rohan Gala", email = "rhngla@gmail.com"},
+]
+
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+
+requires-python = ">=3.8"
+dependencies = [
+    "matplotlib",
+    "seaborn",
+    "numpy",
+    "scipy",
+    "pandas",
+    "scikit-learn",
+    "tqdm",
+    "timebudget",
+    "rich",
+    "ipykernel",
+    "jupyterlab",
+]
+
+[project.optional-dependencies]
+
+dev=[
+    "build",
+    "pre-commit",
+    "ruff"
+]
+
+notebook=[
+    "ipykernel",
+    "jupyterlab"
+]
+
+[project.urls]
+Repository = "https://github.com/alleninstitute/schelp/"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["schelp"]
+
+[tool.ruff]
+
+line-length=120
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+
+
+[tool.ruff.lint]
+
+# See rules: https://beta.ruff.rs/docs/rules/
+select = [
+    "I",    # isort
+    "N",    # pep8-naming
+    "NPY",  # numpy
+    "RUF",  # ruff-specific rules
+]
+
+ignore = [
+    "N803",  # argument name should be lowercase; fine for matrices
+    "N806",  # variable name should be lowercase; fine for matrices
+    "NPY002", # allow calls to np.random; could cause slightly different results
+]
+
+preview = true
+
+[tool.ruff.format]
+indent-style="space"
+preview = true
+
+[tool.ruff.lint.isort]
+known-first-party = ["sage"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
